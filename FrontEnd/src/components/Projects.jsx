@@ -8,7 +8,7 @@ function Projects() {
     useEffect(()=>{
 
         axios.get(
-            "http://localhost:5000/api/projects"
+            "https://personal-portfolio-zfbj.onrender.com/api/projects"
         )
 
         .then((response)=>{

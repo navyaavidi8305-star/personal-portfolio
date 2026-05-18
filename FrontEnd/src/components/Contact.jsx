@@ -33,7 +33,7 @@ function Contact() {
 
         await axios.post(
 
-            "http://localhost:5000/api/contact",
+            "https://personal-portfolio-zfbj.onrender.com/api/contact",
 
             formData
 
