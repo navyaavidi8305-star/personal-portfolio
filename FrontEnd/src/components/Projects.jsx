@@ -1,64 +1,75 @@
-import { useEffect, useState } from "react";
+import { useEffect,useState } from "react";
 import axios from "axios";
 
-function Projects() {
+function Projects(){
 
-    const [projects,setProjects] = useState([]);
+const [projects,setProjects]=useState([]);
 
-    useEffect(()=>{
+useEffect(()=>{
 
-        axios.get(
-            "https://personal-portfolio-zfbj.onrender.com/api/projects"
-        )
+axios.get(
+"https://personal-portfolio-zfbj.onrender.com/api/projects"
+)
 
-        .then((response)=>{
+.then((response)=>{
 
-            setProjects(response.data);
+setProjects(response.data);
 
-        })
+})
 
-        .catch((error)=>{
+.catch((error)=>{
 
-            console.log(error);
+console.log(error);
 
-        });
+});
 
-    },[]);
+},[]);
 
-    return(
+return(
 
-        <section>
+<section id="projects">
 
-            <h2>Projects</h2>
+<h2>
 
-            <div className="projects-container">
+Projects
 
-                {
-                    projects.map((project,index)=>(
+</h2>
 
-                        <div
-                        className="project-card"
-                        key={index}
-                        >
+<div className="projects-container">
 
-                            <h3>
-                                {project.title}
-                            </h3>
+{
 
-                            <p>
-                                {project.description}
-                            </p>
+projects.map((project)=>(
 
-                        </div>
+<div
+className="project-card"
+key={project._id}
+>
 
-                    ))
-                }
+<h3>
 
-            </div>
+{project.title}
 
-        </section>
+</h3>
 
-    );
+<p>
+
+{project.description}
+
+</p>
+
+</div>
+
+))
+
+}
+
+</div>
+
+</section>
+
+);
+
 }
 
 export default Projects;

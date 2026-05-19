@@ -35,7 +35,7 @@ PersonalPortfolio/
 
 ## Live Links
 
-Frontend: YOUR_VERCEL_LINK
+Frontend: https://personal-portfolio-49w3uztgg-avn-projects.vercel.app
 
 Backend: https://personal-portfolio-zfbj.onrender.com
 

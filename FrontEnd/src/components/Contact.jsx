@@ -3,107 +3,93 @@ import axios from "axios";
 
 function Contact() {
 
-    const [formData,setFormData] =
-    useState({
-
-        name:"",
-        email:"",
-        message:""
-
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: ""
     });
 
-    const handleChange =
-    (e)=>{
+    const handleChange = (e) => {
 
         setFormData({
-
             ...formData,
-
-            [e.target.name]:
-            e.target.value
-
+            [e.target.name]: e.target.value
         });
 
     };
 
-    const handleSubmit =
-    async(e)=>{
+    const handleSubmit = async (e) => {
 
         e.preventDefault();
 
-        await axios.post(
+        try {
 
-            "https://personal-portfolio-zfbj.onrender.com/api/contact",
+            await axios.post(
+                "https://personal-portfolio-zfbj.onrender.com/api/contact",
+                formData
+            );
 
-            formData
+            alert("Message sent successfully");
 
-        );
+            setFormData({
+                name: "",
+                email: "",
+                message: ""
+            });
 
-        alert(
-            "Message Sent"
-        );
+        }
+
+        catch (error) {
+
+            console.log(error);
+
+            alert("Error sending message");
+
+        }
 
     };
 
-    return(
+    return (
 
-        <section>
+        <section id="contact">
 
-            <h2>
-                Contact Me
-            </h2>
+            <h2>Contact Me</h2>
 
             <form
-            className="contact-form"
-
-            onSubmit={
-                handleSubmit
-            }
+                className="contact-form"
+                onSubmit={handleSubmit}
             >
 
                 <input
-
-                type="text"
-
-                name="name"
-
-                placeholder=
-                "Enter name"
-
-                onChange=
-                {handleChange}
-
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                 />
 
                 <input
-
-                type="email"
-
-                name="email"
-
-                placeholder=
-                "Enter email"
-
-                onChange=
-                {handleChange}
-
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                 />
 
                 <textarea
-
-                name="message"
-
-                placeholder=
-                "Enter message"
-
-                onChange=
-                {handleChange}
-
+                    name="message"
+                    rows="6"
+                    placeholder="Enter your message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                 />
 
-                <button>
+                <button type="submit">
 
-                    Send
+                    Send Message
 
                 </button>
 

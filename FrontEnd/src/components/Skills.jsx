@@ -1,34 +1,59 @@
 function Skills() {
 
-  const skills = [
-    "Java",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "Node.js",
-    "MongoDB",
-  ];
+    return (
 
-  return (
-    <section>
+        <section id="skills">
 
-      <h2>Skills</h2>
+            <h2>
 
-      <div className="skills-container">
+                Skills
 
-        {
-          skills.map((skill,index)=>(
-            <div className="skill-card" key={index}>
-              {skill}
+            </h2>
+
+            <div className="skills-container">
+
+                <div className="skill-card">
+
+                    HTML
+
+                </div>
+
+                <div className="skill-card">
+
+                    CSS
+
+                </div>
+
+                <div className="skill-card">
+
+                    JavaScript
+
+                </div>
+
+                <div className="skill-card">
+
+                    React.js
+
+                </div>
+
+                <div className="skill-card">
+
+                    Node.js
+
+                </div>
+
+                <div className="skill-card">
+
+                    MongoDB
+
+                </div>
+
             </div>
-          ))
-        }
 
-      </div>
+        </section>
 
-    </section>
-  );
+    );
+
 }
 
 export default Skills;
